@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - pip install pytest
+  pre_build:
+    commands:
+      - "echo Selected test group is $BUILD_ID"
+  build:
+    commands:
+      - python scripts/run_pytest_selected_part_with_arg_index.py $BUILD_ID

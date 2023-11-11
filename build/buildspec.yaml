@@ -1,0 +1,28 @@
+# BUILD_ID: Starts from 1 and is a series of consecutive integers.
+# SPLIT_NUM: Equal to the largest BUILD_ID. The same value should be specified in all builds.
+version: 0.2
+
+batch:
+  fast-fail: false
+  build-list:
+    - identifier: build1
+      buildspec: build/buildspec_parallel.yaml
+      env:
+        variables:
+          BUILD_ID: 1
+          SPLIT_NUM: 3
+      ignore-failure: false
+    - identifier: build2
+      buildspec: build/buildspec_parallel.yaml
+      env:
+        variables:
+          BUILD_ID: 2
+          SPLIT_NUM: 3
+      ignore-failure: false
+    - identifier: build3
+      buildspec: build/buildspec_parallel.yaml
+      env:
+        variables:
+          BUILD_ID: 3
+          SPLIT_NUM: 3
+      ignore-failure: false
